@@ -1,5 +1,5 @@
 "use strict";
-import { ServiceSchema } from "moleculer";
+import { ServiceSchema, Context } from "moleculer";
 
 const GreeterService: ServiceSchema = {
 	name: "greeter",
@@ -26,7 +26,13 @@ const GreeterService: ServiceSchema = {
 		 *
 		 * @returns
 		 */
-		hello: () => "Hello Moleculer",
+		hello: {
+			rest: {
+				method: "GET",
+				path: "/hello",
+			},
+			handler: async () => "Hello Moleculer!",
+		},
 
 		/**
 		 * Welcome a username
@@ -34,10 +40,12 @@ const GreeterService: ServiceSchema = {
 		 * @param {String} name - User name
 		 */
 		welcome: {
+			rest: "/welcome",
 			params: {
 				name: "string",
 			},
-			handler: ctx => `Welcome, ${ctx.params.name}`,
+			/** @param {Context} ctx  */
+			handler: async (ctx: Context<any>) => `Welcome, ${ctx.params.name}`,
 		},
 	},
 

@@ -50,6 +50,18 @@ module.exports = function(values) {
         default: "Memory"
       },
       {
+				type: "confirm",
+				name: "metrics",
+				message: "Would you like to enable metrics?",
+				default: true
+			},			
+			{
+				type: "confirm",
+				name: "tracing",
+				message: "Would you like to enable tracing?",
+				default: true
+			},
+      {
         type: "confirm",
         name: "docker",
         message: "Add Docker files?",
