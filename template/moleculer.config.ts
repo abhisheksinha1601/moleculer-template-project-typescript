@@ -1,4 +1,5 @@
 import { BrokerOptions, Errors } from "moleculer";
+require("dotenv").config();
 
 /**
  * Moleculer ServiceBroker configuration file

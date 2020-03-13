@@ -39,6 +39,7 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     {{#apiGW}}
     "moleculer-web": "^0.8.0",
     {{/apiGW}}
