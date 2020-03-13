@@ -184,14 +184,14 @@ const brokerConfig: BrokerOptions = {
 	errorHandler: null,
 
 	// Called after broker started.
-	started: async _broker => ({
+	async started(_broker) {
 
-	}),
+	},
 
 	// Called after broker stopped.
-	stopped: async _broker => ({
+	async stopped(_broker) {
 
-	}),
+	},
 };
 
 export = brokerConfig;
