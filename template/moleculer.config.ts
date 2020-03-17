@@ -155,7 +155,7 @@ const brokerConfig: BrokerOptions = {
 				// HTTP URL path
 				path: "/metrics",
 				// Default labels which are appended to all metrics labels
-				defaultLabels: (registry: { broker: { namespace: any, nodeID: any }}) => ({
+				defaultLabels: (registry: { broker: { namespace: any; nodeID: any }}) => ({
 					namespace: registry.broker.namespace,
 					nodeID: registry.broker.nodeID,
 				}),

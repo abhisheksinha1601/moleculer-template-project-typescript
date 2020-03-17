@@ -41,7 +41,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     {{#apiGW}}
-    "moleculer-web": "^0.8.0",
+    "moleculer-web": "^0.9.0",
     {{/apiGW}}
     {{#if_eq transporter "NATS"}}
     "nats": "^1.0.1",

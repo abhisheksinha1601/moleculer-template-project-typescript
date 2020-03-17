@@ -136,6 +136,6 @@ module.exports = {
     "spaced-comment": "error",
     "use-isnan": "error",
     "valid-typeof": "off",
-    "max-len": [1, { "ignoreComments": true }],
+    "max-len": [1, 160, { "ignoreComments": true }],
   }
 };
