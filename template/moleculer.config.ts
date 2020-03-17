@@ -1,5 +1,5 @@
 import { BrokerOptions, Errors } from "moleculer";
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/docker-compose.env"});
 
 /**
  * Moleculer ServiceBroker configuration file
