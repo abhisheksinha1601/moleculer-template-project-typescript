@@ -6,12 +6,13 @@
     "build": "tsc",
     "dev": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js --hot --repl --config moleculer.config.ts services/**/*.service.ts",
     "cli":"moleculer connect {{transporter}}",
-    "start": "moleculer-runner services"{{#jest}},
+    "start": "moleculer-runner dist/services"{{#jest}},
     "ci": "jest --watch",
     "test": "jest --coverage"{{/jest}}{{#lint}},
     "lint": "eslint --ext .js,.ts ."{{/lint}}{{#docker}},
     "dc:up": "docker-compose up --build -d",
-    "dc:down": "docker-compose down"{{/docker}}
+    "dc:down": "docker-compose down"{{/docker}},
+    "dc:build": "tsc && docker build -t backend-micro-student ."
   },
   "keywords": [
     "microservices",

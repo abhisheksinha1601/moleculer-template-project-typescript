@@ -31,21 +31,9 @@ const GreeterService: ServiceSchema = {
 				method: "GET",
 				path: "/hello",
 			},
-			handler: async () => "Hello Moleculer!",
-		},
-
-		/**
-		 * Welcome a username
-		 *
-		 * @param {String} name - User name
-		 */
-		welcome: {
-			rest: "/welcome",
-			params: {
-				name: "string",
+			async handler(){
+				return "Hello Moleculer!";
 			},
-			/** @param {Context} ctx  */
-			handler: async (ctx: Context<any>) => `Welcome, ${ctx.params.name}`,
 		},
 	},
 
