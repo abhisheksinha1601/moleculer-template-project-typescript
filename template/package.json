@@ -12,7 +12,7 @@
     "lint": "eslint --ext .js,.ts ."{{/lint}}{{#docker}},
     "dc:up": "docker-compose up --build -d",
     "dc:down": "docker-compose down"{{/docker}},
-    "dc:build": "tsc && docker build -t backend-micro-student ."
+    "dc:build": "docker build -t backend-micro-{{projectName}} ."
   },
   "keywords": [
     "microservices",
