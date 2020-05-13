@@ -168,16 +168,23 @@ const brokerConfig: BrokerOptions = {
 		enabled: {{#if tracing}}true{{/if}}{{#unless tracing}}false{{/unless}},
 		// Available built-in exporters: "Console", "Datadog", "Event", "EventLegacy", "Jaeger", "Zipkin"
 		exporter: {
-			type: "Console", // Console exporter is only for development!
+			type: "NewRelic", // Console exporter is only for development!
 			options: {
-				// Custom logger
-				logger: null,
-				// Using colors
-				colors: true,
-				// Width of row
-				width: 100,
-				// Gauge width in the row
-				gaugeWidth: 40,
+				// NewRelic Insert Key
+				insertKey: process.env.NEWRELIC_INSERT_KEY,
+				// Sending time interval in seconds.
+				interval: 5,
+				// Additional payload options.
+				payloadOptions: {
+					// Set `debug` property in payload.
+					debug: false,
+					// Set `shared` property in payload.
+					shared: false,
+				},
+				// Default tags. They will be added into all span tags.
+				defaultTags: {
+					appName: process.env.NEWRELIC_APP_NAME,
+				},
 			},
 		},
 	},
