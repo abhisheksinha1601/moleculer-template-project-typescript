@@ -6,16 +6,17 @@
 image: node:10.15.3
 
 pipelines:
-  default:
-    - step:
-        caches:
-          - node
-        script:
-          - npm i
-          - npm run dc:build
-          
-          # use the pipe to push to AWS ECR
-          - pipe: atlassian/aws-ecr-push-image:1.1.1
-            variables:
-              IMAGE_NAME: backend-micro-{{projectName}}
-              TAGS: 'latest'
+  branches:
+    master:
+      - step:
+          caches:
+            - node
+          script:
+            - npm i
+            - npm run dc:build
+            
+            # use the pipe to push to AWS ECR
+            - pipe: atlassian/aws-ecr-push-image:1.1.1
+              variables:
+                IMAGE_NAME: backend-micro-{{projectName}}
+                TAGS: '${BITBUCKET_BUILD_NUMBER} latest'
